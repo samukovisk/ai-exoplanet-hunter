@@ -20,5 +20,5 @@ from .views import classify_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('inputs/', classify_view, name='classify'),
+    path('api/classify/', classify_view, name='classify'),
 ]
