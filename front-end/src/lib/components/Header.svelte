@@ -8,7 +8,7 @@
       <ul class="flex list-none">
         <a class="text-white no-underline text-[20px] font-medium hover:text-gray-600  pt-3 mr-10" href="/input">Input Data</a>
         <a class="text-white no-underline text-[20px] font-medium hover:text-gray-600 pt-3  mr-10" href="/baseDeDados">Database</a>
-        <a class="text-white no-underline text-[20px] border border-white rounded-3xl mr-10 px-3 py-2 font-medium bg-[#036f96] hover:bg-[#008abd]" href="/getInTouch">Get in Touch</a>
+        <a class="text-white no-underline text-[20px] border border-white rounded-3xl mr-10 px-3 py-2 font-medium bg-[#036f96] hover:bg-[#008abd]" href="/AboutUs">About Us</a>
       </ul>
     </div>       
   </nav>
