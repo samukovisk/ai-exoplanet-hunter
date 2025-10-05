@@ -13,7 +13,7 @@
     </div>
 
     <!-- Center: Contacts -->
-    <div class="text-left mt-4 sm:mt-0">
+    <div class="text-left mt-4 sm:mt-0 mr-80">
       <h2 class="font-semibold text-sm mb-2">Contatos — Desenvolvedores</h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 text-sm text-slate-200">
         <div>arthur_hla@hotmail.com</div>

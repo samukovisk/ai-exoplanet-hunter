@@ -30,9 +30,9 @@
         <!-- Imagem Central -->
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <img 
-          src="/aboutus.png" 
+          src="/aboutusgrad.png" 
           alt="About Us" 
-          class=" w-250 object-cover rounded-lg shadow-2xl" 
+          class=" w-250 h-full object-cover rounded-lg shadow-2xl" 
           />
         </div>
 
@@ -70,6 +70,4 @@
 
     </div>
   </section>
-
-  <Footer />
 </div>

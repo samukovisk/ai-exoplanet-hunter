@@ -78,7 +78,7 @@
 <!-- 🌌 Parte superior com vídeo -->
 <div class="relative w-full h-screen">
   <video
-    class="absolute top-0 left-0 w-full h-full object-cover z-0 pointer-events-none"
+    class="absolute top-0 left-0 w-full h-400 object-cover z-0 pointer-events-none"
     autoplay
     loop
     muted
@@ -152,17 +152,17 @@
   </div>
 
   <!-- 🌌 Novo carrossel -->
-  <div class="relative w-full h-[50px] max-w-4xl mt-60 flex items-center justify-center">
+  <div class="relative w-full h-[50px] max-w-4xl mt-80 flex items-center justify-center">
     <!-- Botão anterior -->
     <button
       on:click={prevNew}
-      class="absolute left-0 z-20 p-4 border-0 bg-transparent hover:scale-125 transition"
+      class="absolute left-0 z-20 mt-40 p-4 border-0 bg-transparent hover:scale-125 transition"
     >
       <FontAwesomeIcon icon={faChevronLeft} class="text-white text-3xl" />
     </button>
 
     <!-- Card central fixo -->
-    <div class="w-200 p-8 rounded-xl bg-white/10 backdrop-blur-md text-white">
+    <div class="w-200 p-8 rounded-xl bg-white/10 backdrop-blur-md mt-40 text-white">
       <h2 class=" text-white font-bold text-center italic text-[40px] mb-10 tracking-wide">{cardsNew[currentNew].title}</h2>
       <p class="text-sm leading-relaxed whitespace-pre-line">{cardsNew[currentNew].paragraphs}</p>
     </div>
@@ -171,21 +171,21 @@
     <!-- Botão próximo -->
     <button
       on:click={nextNew}
-      class="absolute right-0 z-20 p-4 border-0 bg-transparent hover:scale-125 transition"
+      class="absolute right-0 z-20 p-4 mt-40 border-0 bg-transparent hover:scale-125 transition"
     >
       <FontAwesomeIcon icon={faChevronRight} class="text-white text-3xl" />
     </button>
   </div>
 
   <!-- Indicadores (bolinhas) -->
-  <div class="flex gap-2 mt-6 pb-20">
+  <div class="flex gap-2 mt-70 pb-10">
     {#each cardsNew as _, i}
       <button
         on:click={() => goToNew(i)}
         class={`w-3 h-3 rounded-full border-white transition-all ${
           i === currentNew ? 'bg-white' : 'bg-white/50'
         }`}
-      ></button>
+      >...</button>
     {/each}
   </div>
 </section>
