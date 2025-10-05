@@ -139,9 +139,8 @@
                     <div class="upload-section">
                         <h3>Template</h3>
                         <p>
-                            For instructions, hover over the column headers. The comments explain 
-                            the formatting and specify which columns are mandatory or recommended 
-                            for an accurate analysis.
+                            For detailed instructions, please refer to the PDF file included in the downloaded ZIP archive. 
+                            Make sure to follow the steps carefully to ensure proper usage of the files.
                         </p>
                         <button type="button" class="btn btn-primary" on:click={downloadTemplate}>
                             Download Template
