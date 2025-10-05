@@ -48,12 +48,12 @@
         </div>
 
         <div class=" text-center absolute top-[-23%] right-[53%] w-60 p-3 bg-white/1 rounded-md">
-          <p class="font-bold text-sm text-white">Bianca La mamis</p>
+          <p class="font-bold text-sm text-white">Bianca Bruna</p>
           <p class ="text-white"> 23 years old <br> Control & Automation Eng.</p>
         </div>
 
         <div class="text-center absolute top-[-8%] right-[37%] w-60 p-3 bg-white/1 rounded-md">
-          <p class="font-bold text-sm text-white">Arthurzinho da Fem</p>
+          <p class="font-bold text-sm text-white">Arthur Amorim</p>
           <p class ="text-white"> 22 years old <br> Mechanical Eng.</p>
         </div>
 
@@ -63,7 +63,7 @@
         </div>
 
         <div class=" text-center absolute top-[90%] right-[5%] w-48 p-3 bg-white/0 rounded-md">
-          <p class="font-bold text-sm text-white">Gabriel Giroflex</p>
+          <p class="font-bold text-sm text-white">Gabriel Giro</p>
           <p class ="text-white"> 22 years old <br> Computer Eng.</p>
         </div>
 
