@@ -35,23 +35,32 @@
   // -----------------------------
   let currentNew = 0;
   const cardsNew = [
-    {
-      title: "What are Exoplanets?",
-      text: "An exoplanet is simply a planet that orbits a star other than our Sun. For millennia, humanity only knew of the planets in our Solar System. The existence of planets around other stars was theorized, but the first confirmation only came in the early 1990s. Since then, we have confirmed the existence of more than 5,600 exoplanets (and this number grows almost daily!)."
-    },
-    {
-      title: "More About MD-2R",
-      text: "MD-2R continues to explore the latest discoveries in the universe. Our AI models constantly analyze incoming data to identify new exoplanet candidates. Join us as we push the boundaries of space exploration and make cutting-edge research accessible to everyone."
-    },
-    {
-      title: "Curiosities",
-      text: "There are exoplanets that orbit so close to their star that one side is almost always exposed to extreme heat, while the opposite side remains extremely cold — these are known as “tidally locked” planets. One example is 55 Cancri e, which is so close to its star that it completes an entire year in less than 18 hours."
-    },
-    {
-      title: "The Role of AI in Discovery",
-      text: "Artificial intelligence allows us to process thousands of light curves in just seconds — a task that would take humans months. Through algorithms capable of detecting tiny variations in brightness, AI helps scientists identify potential planets orbiting distant stars with unmatched precision."
-    }
-  ];
+  {
+    title: "Dive in our WebSite",
+    paragraphs: [
+      "MD-2R is revolutionizing the discovery of exoplanets by using artificial intelligence to analyze vast amounts of NASA data from missions like Kepler and TESS. This approach allows us to identify new planets more quickly and accurately than traditional manual methods. Our AI system learns to recognize the subtle signs of real exoplanets, classifies findings as Confirmed, Candidate, or False Positive, and continuously validates results against official NASA data. By automating these processes, MD-2R makes space exploration more accessible, accelerates the pace of scientific discovery, and uncovers planets that might have been missed before. Additionally, the platform serves as an educational tool, inspiring students and enthusiasts to engage with astronomy and explore the universe."
+    ]
+  },
+  {
+    title: "Developing the used AI Model",
+    paragraphs: [
+      "Our AI model acts like a virtual astrophysicist, trained to identify exoplanets with high accuracy. Using a vast NASA database where every celestial object was classified as 'Confirmed,' 'Candidate,' or 'False Positive,' the AI learned, through supervised learning, to recognize patterns such as brightness variations and orbital periods. Today, it can analyze new data and predict whether an object is a true exoplanet, a promising candidate, or a false alarm, effectively automating the discovery process."
+    ]
+  },
+  {
+    title: "Curiosities",
+    paragraphs: [
+      "Exoplanets display extreme diversity in conditions, from 'locked' planets where one side is scorching hot and the other frigid—like 55 Cancri e, which completes a year in less than 18 hours—to worlds with exotic atmospheres. Observations, such as those of WASP-39b by the James Webb Space Telescope, reveal chemical diversity including sulfur dioxide, water vapor, and carbon dioxide, showing reactions driven by starlight similar to processes on Venus and Earth. Some planets, especially hot Jupiters and hot Neptunes, experience intense atmospheric loss, where stellar radiation strips away gases from their outer layers. HD 209458 b, or Osiris, is a notable example, being the first exoplanet where this phenomenon was directly observed."
+    ]
+  },
+  {
+    title: "The Role of AI in Discovery",
+    paragraphs: [
+      "Our AI model acts like a virtual astrophysicist, trained to identify exoplanets with high accuracy. Using a vast NASA database where every celestial object was classified as 'Confirmed,' 'Candidate,' or 'False Positive,' the AI learned, through supervised learning, to recognize patterns such as brightness variations and orbital periods. Today, it can analyze new data and predict whether an object is a true exoplanet, a promising candidate, or a false alarm, effectively automating the discovery process."
+    ]
+  }
+];
+
 
   function nextNew() {
     currentNew = (currentNew + 1) % cardsNew.length;
@@ -143,7 +152,7 @@
   </div>
 
   <!-- 🌌 Novo carrossel -->
-  <div class="relative w-full max-w-4xl mt-50 flex items-center justify-center">
+  <div class="relative w-full h-[50px] max-w-4xl mt-60 flex items-center justify-center">
     <!-- Botão anterior -->
     <button
       on:click={prevNew}
@@ -154,9 +163,10 @@
 
     <!-- Card central fixo -->
     <div class="w-200 p-8 rounded-xl bg-white/10 backdrop-blur-md text-white">
-      <h2 class="text-2xl font-bold mb-4 text-center">{cardsNew[currentNew].title}</h2>
-      <p class="text-sm leading-relaxed whitespace-pre-line">{cardsNew[currentNew].text}</p>
+      <h2 class=" text-white font-bold text-center italic text-[40px] mb-10 tracking-wide">{cardsNew[currentNew].title}</h2>
+      <p class="text-sm leading-relaxed whitespace-pre-line">{cardsNew[currentNew].paragraphs}</p>
     </div>
+    
 
     <!-- Botão próximo -->
     <button

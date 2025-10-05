@@ -5,6 +5,10 @@
 
 @reference "tailwindcss"; 
 
+main {
+    flex: 1; /* Faz o conteúdo crescer e empurra o footer para baixo */
+    }
+
 
 
 html, body {
