@@ -1,16 +1,35 @@
 <script>
-  const year = new Date().getFullYear();
+  // No imports needed, this component is self-contained.
 </script>
 
-<footer class="w-full bg-gradient-to-r from-[#025d7e] to-[#013f52] text-white py-8 mt-12">
-  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
-    <div class="text-center md:text-left">
-      <img src="/logo.png" class="h-12 inline-block" alt="logo" />
-      <p class="mt-2 text-sm">MD-2R — Exoplanet classification & research.</p>
+<footer class="bg-gradient-to-r from-[#1b92bd] to-[#025d7e] text-white mt-2 rounded-t-2xl shadow-lg">
+  <div class="max-w-7xl mx-auto px-8 py-3 flex flex-wrap items-center justify-between">
+    
+    <!-- Left: Logos -->
+    <div class="flex items-center space-x-20">
+      <!-- Main logo (replace src with your logo path in /static) -->
+      <img src="/logo.png" alt="MD-2R image Logo" class="w-20 rounded-full" />
+      <img src="/MD-2R.png" alt="MD-2R Logo" class="w-40 rounded-full" />
     </div>
-    <div class="mt-4 md:mt-0 text-sm text-center md:text-right">
-      <p>Contact: <a href="mailto:team@example.com" class="underline">team@example.com</a></p>
-      <p class="mt-1">© {year} MD-2R</p>
+
+    <!-- Center: Contacts -->
+    <div class="text-left mt-4 sm:mt-0">
+      <h2 class="font-semibold text-sm mb-2">Contatos — Desenvolvedores</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 text-sm text-slate-200">
+        <div>arthur_hla@hotmail.com</div>
+        <div>biancabruna@gmail.com</div>
+        <div>gabriel.giro@unicamp.br</div>
+        <div>amandaakemikato@gmail.com</div>
+        <div>everton.m@gmail.com</div>
+        <div>samuel.parkour@outlook.com</div>
+      </div>
     </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-white/20 text-center py-3 text-xs text-slate-300">
+    <p>MD-2R — Exoplanet classification & research.</p>
+    <p>© 2025 MD-2R</p>
   </div>
 </footer>
