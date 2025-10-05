@@ -2,6 +2,7 @@
     // InputData.svelte
     import { onMount } from 'svelte';
     import { classifyExoplanetFile } from '$lib/api';
+    import Chart from 'chart.js/auto';
     
     // State variables
     let selectedFile = null;
@@ -71,6 +72,47 @@
     function scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // Generate result chart
+    let chart;
+    let chartCanvas;
+
+    
+    function renderChart(distribution) {
+        const labels = Object.keys(distribution);
+        const data = Object.values(distribution);
+
+        if (chart) chart.destroy(); // Clear previous chart if it exists
+
+        chart = new Chart(chartCanvas, {
+            type: 'pie',
+            data: {
+                labels,
+                datasets: [{
+                    data,
+                    backgroundColor: ['#4CAF50', '#FFC107', '#F44336'],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Exoplanet Classification Distribution'
+                    }
+                }
+            }
+        });
+    }
+
+    // Reactive statement to trigger chart rendering when results are ready
+    $: if (showResults && results?.summary?.distribution) {
+        renderChart(results.summary.distribution);
+    }
+
 </script>
 
 <!-- HTML Template -->
@@ -187,13 +229,13 @@
                 <div class="results-content">
                     <div class="results-summary">
                         <h3>✨ Analysis Complete!</h3>
-                        <p>Processed {results.total} exoplanets</p>
-                        <p>Success: {results.success} | Errors: {results.errors}</p>
+                        <p>Processed {results.length} exoplanets</p>
                     </div>
 
+                    <!-- Chart Container -->
                     <div class="chart-container">
-                        <h3>Classification Distribution</h3>
-                        {@html results.summary}
+                        <h3>Classification distribution</h3>
+                        <canvas bind:this={chartCanvas}></canvas>
                     </div>
 
                     <div class="results-description">
