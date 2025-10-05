@@ -1,4 +1,13 @@
 services:
+  frontend:
+    build: ./front-end/
+    command: npm run dev
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    
   web:
     build: ./app/
     command: python manage.py runserver 0.0.0.0:8000
