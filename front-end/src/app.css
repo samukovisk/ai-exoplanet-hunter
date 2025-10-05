@@ -29,5 +29,8 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #0c4369; /* cor de fundo sólida */
+  background-attachment: fixed;
 }
+  
 
