@@ -32,9 +32,9 @@ class ExoplanetPredictor:
         
         # Labels das classes
         self.class_labels = {
-            0: "FALSO POSITIVO",
-            1: "CANDIDATO",
-            2: "CONFIRMADO"
+            0: "FALSE POSITIVE",
+            1: "CANDIDATE",
+            2: "CONFIRMED"
         }
     
     def preprocess_input(self, user_data: Dict[str, Optional[float]]) -> pd.DataFrame:
@@ -194,9 +194,9 @@ class ExoplanetPredictor:
                     'prediction': result['prediction'],
                     'prediction_label': result['prediction_label'],
                     'confidence': result['confidence'],
-                    'prob_false_positive': result['probabilities']['FALSO POSITIVO'],
-                    'prob_candidate': result['probabilities']['CANDIDATO'],
-                    'prob_confirmed': result['probabilities']['CONFIRMADO'],
+                    'prob_false_positive': result['probabilities']['FALSE POSITIVE'],
+                    'prob_candidate': result['probabilities']['CANDIDATE'],
+                    'prob_confirmed': result['probabilities']['CONFIRMED'],
                     'top_feature_1': result['top_features'][0]['feature'],
                     'top_feature_1_importance': result['top_features'][0]['importance'],
                     'top_feature_2': result['top_features'][1]['feature'],
