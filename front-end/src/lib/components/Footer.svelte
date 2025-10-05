@@ -17,11 +17,11 @@
       <h2 class="font-semibold text-sm mb-2">Contatos — Desenvolvedores</h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 text-sm text-slate-200">
         <div>arthur_hla@hotmail.com</div>
-        <div>biancabruna@gmail.com</div>
-        <div>gabriel.giro@unicamp.br</div>
+        <div>biancabrunab69@gmail.com</div>
+        <div>gpgiro@gmail.com</div>
         <div>amandaakemikato@gmail.com</div>
-        <div>everton.m@gmail.com</div>
-        <div>samuel.parkour@outlook.com</div>
+        <div>everton.m.amparo@gmail.com</div>
+        <div>samuelzinhorm123@hotmail.com</div>
       </div>
     </div>
 
