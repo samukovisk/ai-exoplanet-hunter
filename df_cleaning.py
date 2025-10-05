@@ -30,7 +30,7 @@ else:
 	print("No samples available for mutual information calculation after dropping NaNs.")
 	
 # Selects the top 20 features based on mutual information
-mi_series = mi_series[mi_series >= 0.1].sort_values(ascending=False).head(20)
+# mi_series = mi_series[mi_series >= 0.1].sort_values(ascending=False).head(20)
 # Features com MI >= 0.1
 selected_features = mi_series.index.tolist()
 
