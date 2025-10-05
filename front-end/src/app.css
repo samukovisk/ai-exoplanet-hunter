@@ -5,12 +5,17 @@
 
 @reference "tailwindcss"; 
 
+main {
+    flex: 1; /* Faz o conteúdo crescer e empurra o footer para baixo */
+    }
+
 
 
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Impede scroll horizontal */
+  overflow-y: auto; /* Permite scroll vertical */
   
 }
 
@@ -29,5 +34,8 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #0c4369; /* cor de fundo sólida */
+  background-attachment: fixed;
 }
+  
 

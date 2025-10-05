@@ -357,7 +357,8 @@
     /* Hero Section */
     .hero {
         padding: 80px 60px 60px;
-        background: rgba(0, 0, 0, 0.3);
+
+        
     }
 
     .hero h1 {
@@ -382,7 +383,7 @@
 
     /* Upload Card */
     .upload-card {
-        background: rgba(40, 60, 75, 0.6);
+        background: rgba(22, 66, 100, 0.6);
         backdrop-filter: blur(10px);
         border-radius: 20px;
         padding: 50px;
@@ -592,60 +593,12 @@
         transform: translateY(-5px);
     }
 
-    /* Footer */
-    footer {
-        background: rgba(30, 45, 60, 0.8);
-        padding: 30px 60px;
-        margin-top: 60px;
-    }
 
-    .footer-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
 
-    .footer-logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 20px;
-        font-weight: 700;
-    }
-
-    .footer-title {
-        opacity: 0.8;
-        margin-bottom: 10px;
-    }
-
-    .footer-contacts {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        font-size: 14px;
-    }
-
-    .footer-contacts a {
-        color: white;
-        text-decoration: none;
-        opacity: 0.8;
-        transition: opacity 0.3s;
-    }
-
-    .footer-contacts a:hover {
-        opacity: 1;
-    }
 
     /* Responsive */
     @media (max-width: 768px) {
-        .navbar {
-            padding: 15px 20px;
-        }
-
-        .nav-links {
-            gap: 20px;
-            font-size: 14px;
-        }
+ 
 
         .hero {
             padding: 40px 20px;
@@ -666,14 +619,7 @@
         .upload-grid {
             grid-template-columns: 1fr;
         }
-
-        .footer-content {
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .footer-contacts {
-            grid-template-columns: 1fr;
-        }
+    
     }
+
 </style>
