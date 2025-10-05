@@ -1,16 +1,4 @@
-version: '3.8'
-
 services:
-  # web:
-  #   build: .
-  #   command: python manage.py runserver 0.0.0.0:8000
-  #   volumes:
-  #     - .:/app
-  #   ports:
-  #     - "8000:8000"
-  #   environment:
-  #     - DEBUG=1
-
   frontend:
     build: ./front-end/
     command: npm run dev
@@ -19,3 +7,13 @@ services:
     environment:
       - NODE_ENV=production
     restart: unless-stopped
+    
+  web:
+    build: ./app/
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=1
