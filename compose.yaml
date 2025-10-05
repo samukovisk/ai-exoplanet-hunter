@@ -4,11 +4,14 @@ services:
     command: npm run dev
     ports:
       - "5173:5173"
+    volumes:
+          - ./front-end:/front-end
+          - /front-end/node_modules  # Prevents overwriting node_modules with host
     environment:
       - NODE_ENV=production
     restart: unless-stopped
     
-  web:
+  backend:
     build: ./app/
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
