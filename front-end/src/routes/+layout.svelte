@@ -1,28 +1,18 @@
 <script>
   import { page } from '$app/stores';
+  import Header from '$lib/components/Header.svelte';
+  import NavBar from '$lib/components/NavBar.svelte';
   import "../app.css";
+
+  $: showNavBar = $page.url.pathname !== '/';
 </script>
 
-<div class="video-container">
 
-  <video autoplay loop muted playsinline>
-    <source  src="/7959300-hd_1920_1080_30fps.mp4" type="video/mp4" />
-  </video>
+  <!-- Header e Nav ficam aqui, sobre o vídeo -->
+  <Header />
+  {#if showNavBar}
+    <NavBar />
+  {/if}
 
-
-  <nav class="p-4">
-    <a href="/" 
-       class="text-blue-600 hover:underline" 
-       class:font-bold={$page.url.pathname === "/"}>
-       Home
-    </a>
-    <a href="/baseDeDados" 
-       class="text-blue-800 hover:underline" 
-       class:font-bold={$page.url.pathname === "/baseDeDados"}>
-       Base de Dados
-    </a>
-  </nav>
-
-  <!-- Slot para renderizar páginas filhas -->
   <slot />
-</div>
+
