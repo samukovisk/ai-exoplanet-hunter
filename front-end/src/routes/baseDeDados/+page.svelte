@@ -1,8 +1,7 @@
-```svelte
 <script>
-        import { page } from '$app/stores';
-        import Footer from '$lib/components/Footer.svelte'; 
-  // Se quiser, pode transformar os datasets em array e renderizar via {#each}
+  import { page } from '$app/stores';
+  import Footer from '$lib/components/Footer.svelte'; 
+
   const databases = [
     {
       title: "Kepler Objects of Interest (KOI)",
@@ -33,14 +32,14 @@
   ];
 </script>
 
+<!-- Container geral -->
 <div class="relative min-h-screen text-white bg-[#0a1628] px-6 md:px-8 lg:px-12 py-10">
 
-  <!-- Imagem de fundo exemplo.png -->
-  <div class="min-h-screen bg-[url('/database_background.png')] bg-cover bg-center bg-no-repeat bg-fixed">
+  <!-- Plano de fundo que rola -->
+  <div class="w-full h-auto bg-[#0a1628] bg-[url('/database_fundo.png')] bg-[length:100%_auto] bg-no-repeat bg-top">
+    <div class="absolute inset-0 bg-white/20"></div> <!-- ajuste o valor /10, /20, etc -->
 
-
-
-    <!-- Overlay escuro -->
+    <!-- Overlays -->
     <div class="absolute inset-0 bg-[url('/Design sem nome.png')] bg-cover bg-center"></div>
     <div class="absolute inset-0 bg-[#0a1628]/30"></div>
     <div class="absolute inset-0 bg-gradient-to-b 
@@ -63,7 +62,6 @@
         NASA Database & Resources
       </h2>
 
-      <!-- Lista dos cards -->
       {#each databases as db}
         <div class="rounded-lg p-6 md:p-8 mb-8 transition-transform duration-300 hover:-translate-y-1">
           <h3 class="text-lg font-light mb-3">
@@ -83,6 +81,5 @@
     </div>
   </div>
 </div>
-
 
 <Footer />
