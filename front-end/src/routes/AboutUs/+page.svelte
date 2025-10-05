@@ -29,7 +29,11 @@
       <div class="relative h-[520px] rounded-lg p-6">
         <!-- Imagem Central -->
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <img src="/aboutus.png" alt="About Us" class="w-250 object-cover rounded-lg shadow-2xl" />
+          <img 
+          src="/aboutus.png" 
+          alt="About Us" 
+          class=" w-250 object-cover rounded-lg shadow-2xl" 
+          />
         </div>
 
         <!-- Small floating notes (randomized positions) -->
@@ -55,12 +59,12 @@
 
         <div class=" text-center absolute top-[80%] right-[25%] w-48 p-3 bg-white/0 rounded-md">
           <p class="font-bold text-sm text-white">Everton Machado</p>
-          <p class ="text-white"> 24 years old <br> Electrical Eng.</p>
+          <p class ="text-white"> 24 years old <br> Mechanical Eng.</p>
         </div>
 
         <div class=" text-center absolute top-[90%] right-[5%] w-48 p-3 bg-white/0 rounded-md">
           <p class="font-bold text-sm text-white">Gabriel Giroflex</p>
-          <p class ="text-white"> 22 years old <br> Electrical Eng.</p>
+          <p class ="text-white"> 22 years old <br> Computer Eng.</p>
         </div>
 
 
