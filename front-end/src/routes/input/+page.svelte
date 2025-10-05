@@ -1,128 +1,86 @@
-<script>
-  let fullName = '';
-  let email = '';
-  let cpf = '';
-  let rg = '';
-  let password = '';
-  let confirmPassword = '';
-  let showPassword = false;
-  let document = '';
-  let assignature = '';
+<script lang="ts">
+  import { classifyExoplanetFile } from '$lib/api';
 
-  function togglePassword() {
-    showPassword = !showPassword;
-  }
+  let file: File | null = null;
+  let results: { input: Record<string, string>, classification: string }[] = [];
+  let error: string | null = null;
+  let loading = false;
 
-  function handleFileChange(event, field) {
-    const file = event.target.files[0];
-    if (file) {
-      if (field === 'document') document = file.name;
-      if (field === 'assignature') assignature = file.name;
+  function handleFileChange(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      file = target.files[0];
+      results = [];
+      error = null;
     }
   }
 
-  $: passwordStrength = password.length >= 8
-    ? 'Strong'
-    : password.length > 0
-      ? 'Weak'
-      : '';
+  async function handleSubmit() {
+    if (!file) return;
+
+    loading = true;
+    error = null;
+    results = [];
+
+    try {
+      results = await classifyExoplanetFile(file);
+    } catch (err) {
+      error = err.message;
+    } finally {
+      loading = false;
+    }
+  }
 </script>
 
-<div class="align-center justify-center text-center pt-5">
+<div class="min-h-screen bg-gray-100 p-6 flex flex-col items-center justify-start">
+  <div class="w-full max-w-2xl bg-white shadow-md rounded-lg p-6">
+    <h1 class="text-2xl font-bold mb-4 text-gray-800">Upload Exoplanet Data</h1>
 
-  <h1 class="font-roboto tracking-tight italic font-bold text-center py-30 pb-2 text-[30px] leading-none">
-    Fill In Your Data <br> To Get Started!
-  </h1>
-
-  <div class="ml-5 py-5 text-[14px] space-y-4">
-
-    <label class="block font-semibold pb-7 text-[18px]" for="fullName">DATA</label>
     <input
-      id="fullName"
-      type="text"
-      bind:value={fullName}
-      placeholder="Iara Amagot Santos"
-      class="w-200 p-2 rounded focus:outline-none focus:ring-1 focus:ring-[#948dfadd] bg-[#f4f9fc]"
-    />
-
-    <label class="block font-semibold py-8 pb-7 text-[18px]" for="email">DATA 2</label>
-    <input
-      id="email"
-      type="email"
-      bind:value={email}
-      placeholder="iara1234@yourdomain.com"
-      class="w-200 p-2 rounded focus:outline-none focus:ring-1 focus:ring-[#948dfadd] bg-[#f5f9fc]"
-    />
-
-    <label class="block font-semibold py-8 pb-7 text-[18px]" for="cpf">DATA 3</label>
-    <input
-      id="cpf"
-      type="text"
-      bind:value={cpf}
-      placeholder="XXX.XXX.XXX-YY"
-      class="w-200 p-2 rounded focus:outline-none focus:ring-1 focus:ring-[#948dfadd] bg-[#f4fbff]"
-    />
-
-    <label class="block font-semibold py-8 pb-7 text-[18px]" for="rg">DATA 4</label>
-    <input
-      id="rg"
-      type="text"
-      bind:value={rg}
-      placeholder="ZZ.ZZZ.ZZZ-WW"
-      class="w-200 p-2 rounded focus:outline-none focus:ring-1 focus:ring-[#948dfadd] bg-[#f0f9ff]"
-    />
-
-    
-    <label class="block font-semibold py-8 pb-7 text-[18px]" for="document">UPLOAD A FILE</label>
-    <input
-      id="document"
-      type="text"
-      bind:value={document}
-      placeholder="Choose a file..."
-      class="w-183 p-2 rounded focus:outline-none focus:ring-1 focus:ring-[#948dfadd] bg-[#ceedff]"
-      readonly
-    />
-    <label
-      for="file-upload-document"
-      class="cursor-pointer px-2 py-3 text-[10px] border border-gray-400 bg-[#ccecff] font-semibold rounded hover:bg-[#addeff] transition"
-    >
-      UPLOAD
-    </label>
-    <input
-      id="file-upload-document"
       type="file"
-      class="hidden"
-      on:change={(e) => handleFileChange(e, 'document')}
+      accept=".csv,.xls,.xlsx"
+      on:change={handleFileChange}
+      class="mb-4 block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
     />
-      
-      <label class="block font-semibold py-8 pb-7 text-[18px]" for="assignature">UPLOAD A FILE</label>
-      <input
-        id="assignature"
-        type="text"
-        bind:value={assignature}
-        placeholder="Choose a file..."
-        class="w-183 p-2 rounded focus:outline-none focus:ring-1 focus:ring-[#948dfadd] bg-[#ccecff]"
-        readonly
-      />
-      <label
-        for="file-upload-assignature"
-        class="cursor-pointer px-2 py-3 text-[10px] border border-gray-400 bg-[#ccecff] font-semibold rounded hover:bg-[#addeff] transition"
-      >
-        UPLOAD
-      </label>
-      <input
-        id="file-upload-assignature"
-        type="file"
-        class="hidden"
-        on:change={(e) => handleFileChange(e, 'assignature')}
-      />
-  </div>    
-  <div class="flex justify-center pb-30 pt-5">
-      
-    <a href="/" class="font-roboto cursor-pointer text-center focus:outline-none focus:ring-1 focus:ring-[#564588dd] bg-black text-white text-[13px] py-1 px-6 font-semibold rounded  hover:bg-[#251372dd] transition" type="submit">HOME</a>
 
+    <button
+      on:click={handleSubmit}
+      disabled={!file || loading}
+      class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 disabled:opacity-50"
+    >
+      {loading ? 'Processing...' : 'Classify File'}
+    </button>
+
+    {#if error}
+      <p class="text-red-600 mt-4">{error}</p>
+    {/if}
+
+    {#if results.length}
+      <div class="mt-6">
+        <h2 class="text-xl font-semibold mb-2">Classification Results</h2>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-sm text-left text-gray-700 border">
+            <thead class="bg-gray-200">
+              <tr>
+                <th class="px-4 py-2">#</th>
+                <th class="px-4 py-2">Input</th>
+                <th class="px-4 py-2">Classification</th>
+              </tr>
+            </thead>
+            <tbody>
+              {#each results as item, i}
+                <tr class="border-t">
+                  <td class="px-4 py-2">{i + 1}</td>
+                  <td class="px-4 py-2">
+                    <pre class="whitespace-pre-wrap">{JSON.stringify(item.input, null, 2)}</pre>
+                  </td>
+                  <td class="px-4 py-2 font-semibold">{item.classification}</td>
+                </tr>
+              {/each}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    {/if}
   </div>
-
 </div>
-
-<slot />
