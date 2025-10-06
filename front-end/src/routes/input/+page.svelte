@@ -140,7 +140,7 @@
                         <h3>Template</h3>
                         <p>
                             For detailed instructions, please refer to the PDF file included in the downloaded ZIP archive. 
-                            Make sure to follow the steps carefully to ensure proper usage of the files.
+                            Make sure to follow the steps to ensure proper usage of the files.
                         </p>
                         <button type="button" class="btn btn-primary" on:click={downloadTemplate}>
                             Download Template
